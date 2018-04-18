@@ -42,10 +42,10 @@
 				return o;
 			}
 
-			fixed3 frag (v2f i) : SV_Target
+			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed col = tex3D(_Noise3D, i.worldPosition * _Scale).rrr * _Amplitude;
-				return col;
+				fixed3 col = tex3D(_Noise3D, i.worldPosition * _Scale).rrr * _Amplitude;
+				return fixed4(col, 1);
 			}
 			ENDCG
 		}
